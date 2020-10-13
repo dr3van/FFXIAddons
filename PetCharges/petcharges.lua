@@ -28,8 +28,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 _addon.name = 'PetCharges'
-_addon.author = 'Sammeh'
-_addon.version = '1.7' 
+_addon.author = 'Sammeh''Drevan'
+_addon.version = '1.8' 
 _addon.command = 'petcharges'
 
 config = require('config')
@@ -39,8 +39,8 @@ packets = require('packets')
 
 abilitytxt = {}
 abilitytxt.pos = {}
-abilitytxt.pos.x = -80
-abilitytxt.pos.y = 45
+abilitytxt.pos.x = -500
+abilitytxt.pos.y = -500
 abilitytxt.text = {}
 abilitytxt.text.font = 'Arial'
 abilitytxt.text.size = 10
@@ -156,7 +156,21 @@ windower.register_event('load', function()
 			jobpoints = 0
 		end	
     end
-	merits = self.merits.sic_recast
+
+	if self.merits.sic_recast == 5 then
+		merits = 10
+	elseif self.merits.sic_recast == 4 then
+		merits = 8
+	elseif self.merits.sic_recast == 3 then
+		merits = 6
+	elseif self.merits.sic_recast == 2 then
+		merits = 4
+	elseif self.merits.sic_recast == 1 then
+		merits = 2
+	else
+		merits = 0
+	end
+	
 end)
 
 windower.register_event('login', function()
@@ -167,7 +181,21 @@ windower.register_event('login', function()
 	else
 		jobpoints = 0
 	end	
-	merits = self.merits.sic_recast
+
+	if self.merits.sic_recast == 5 then
+		merits = 10
+	elseif self.merits.sic_recast == 4 then
+		merits = 8
+	elseif self.merits.sic_recast == 3 then
+		merits = 6
+	elseif self.merits.sic_recast == 2 then
+		merits = 4
+	elseif self.merits.sic_recast == 1 then
+		merits = 2
+	else
+		merits = 0
+	end
+	
 end)
 
 windower.register_event('zone change', function(command)
@@ -177,8 +205,22 @@ windower.register_event('zone change', function(command)
 		jobpoints = 5
 	else
 		jobpoints = 0
-	end	
-	merits = self.merits.sic_recast
+	end
+
+	if self.merits.sic_recast == 5 then
+		merits = 10
+	elseif self.merits.sic_recast == 4 then
+		merits = 8
+	elseif self.merits.sic_recast == 3 then
+		merits = 6
+	elseif self.merits.sic_recast == 2 then
+		merits = 4
+	elseif self.merits.sic_recast == 1 then
+		merits = 2
+	else
+		merits = 0
+	end
+	
 	pet = windower.ffxi.get_mob_by_target('pet')
 	abilitylist = windower.ffxi.get_abilities().job_abilities
 end)
@@ -191,8 +233,21 @@ windower.register_event('job change', function(command)
 	else
 		jobpoints = 0
 	end	
-	merits = self.merits.sic_recast
+	
+	if self.merits.sic_recast == 5 then
+		merits = 10
+	elseif self.merits.sic_recast == 4 then
+		merits = 8
+	elseif self.merits.sic_recast == 3 then
+		merits = 6
+	elseif self.merits.sic_recast == 2 then
+		merits = 4
+	elseif self.merits.sic_recast == 1 then
+		merits = 2
+	else
+		merits = 0
+	end
+	
 	pet = windower.ffxi.get_mob_by_target('pet')
 	abilitylist = windower.ffxi.get_abilities().job_abilities
 end)
-
